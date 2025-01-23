@@ -33,6 +33,9 @@ jobs:
           repository: ${{ github.repository }}
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
+      - name: Install Cloudsmith CLI
+        run: |
+          pip install cloudsmith-cli
 
 
 
