@@ -43,13 +43,13 @@ jobs:
 
       - name: Push package to Cloudsmith
         env:
-          CLOUDSMITH_NAMESPACE: ${{ secrets.CLOUDSMITH_NAMESPACE }}
+          CLOUDSMITH_NAMESPACE: ${secrets.CLOUDSMITH_NAMESPACE}
           CLOUDSMITH_REPOSITORY: "staging"
-          CLOUDSMITH_SERVICE_SLUG: ${{ secrets.CLOUDSMITH_SERVICE_SLUG }}
+          CLOUDSMITH_SERVICE_SLUG: ${secrets.CLOUDSMITH_SERVICE_SLUG}
         run: |
           if ! ls dist/*.tar.gz 1> /dev/null 2>&1; then
             echo "No package found to upload"
             exit 1
           fi
-          cloudsmith push python ${CLOUDSMITH_NAMESPACE }/${CLOUDSMITH_REPOSITORY} dist/*.tar.gz --republish
+          cloudsmith push python ${CLOUDSMITH_NAMESPACE}/${CLOUDSMITH_REPOSITORY} dist/*.tar.gz --republish
         shell: bash
