@@ -17,6 +17,7 @@ permissions:
   contents: read
   actions: read
 
+
 jobs:
   publish:
     runs-on: ubuntu-latest
